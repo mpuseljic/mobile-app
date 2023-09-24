@@ -28,6 +28,12 @@ button {
     border-radius: 8px;
     font-size: 20px;
     font-family: 'Rubik', sans-serif;
+
+}
+
+button:hover{
+    background-color: #432000;
+    cursor: pointer;
 }
 
 .image{
@@ -59,5 +65,11 @@ ul li {
     flex-grow: 1;
     text-align: center;
 
+
+}
+
+ul li:hover{
+    background-color: #FFECC7;
+    cursor: pointer;
 
 }
