@@ -49,16 +49,23 @@ function clearShoppingListEl(){
 }
 
 onValue(shoppingListInDB, function(snapshot){
-    let itemsArray = Object.entries(snapshot.val())
+    if(snapshot.exists()){
+        let itemsArray = Object.entries(snapshot.val())
 
-    clearShoppingListEl()
+        clearShoppingListEl()
+        
+        for(let i = 0; i < itemsArray.length; i++){
+            let currentItem = itemsArray[i]
     
-    for(let i = 0; i < itemsArray.length; i++){
-        let currentItem = itemsArray[i]
+            let currentItemID = currentItem[0]
+            let currentItemValue = currentItem[1]
+    
+            appendItemToShoppingListEL(currentItem)
+        }
 
-        let currentItemID = currentItem[0]
-        let currentItemValue = currentItem[1]
-
-        appendItemToShoppingListEL(currentItem)
+    } else {
+        shoppingListEL.innerHTML =  "No items here... yet"
     }
+
+
 })
